@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(button).click(function() {
     let newText = $('.text-submission textarea').val()
-    wc.text(newText)
+
+    $.each(newText.split(' '), function(i, text) {
+      console.log(text);
+    });
+
   })
 
 
-
-  // Then I should see text appear on the right side of the page
   // With each word from the paragraph only shown once
   // and the size of each word is relative to its frequency in the paragraph.
 
