@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         words[word] = 1
       }
     });
+    saveWords(words)
     gatherWords(words)
   })
 
@@ -36,8 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayWord(count, word) {
-    // var word = word.replace(/,/g, '')
     wc.append(`<span style='font-size: ${count}em; margin: 5px'>${word}</span>`)
+  }
+
+  function saveWords(words) {
+    $.each(words, function(word) {
+      $.post(API + `/api/v1/words`, {word: { value: word } })
+    })
   }
 
 })
