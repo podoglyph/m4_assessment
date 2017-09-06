@@ -3,6 +3,9 @@ const API = "https://wordwatch-api.herokuapp.com"
 
 document.addEventListener("DOMContentLoaded", () => {
   const tw = $('.top-word h3')
+  const wc = $('.word-count')
+  const button = $('.text-submission button')
+
 
   $.getJSON(API + `/api/v1/top_word`, function(data) {
     let word = Object.keys(data.word)[0]
@@ -10,5 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     currentText = tw.text()
     tw.text(`${currentText} ${word} (${number})`)
   })
+
+  $(button).click(function() {
+    let newText = $('.text-submission textarea').val()
+    wc.text(newText)
+  })
+
+
+
+  // Then I should see text appear on the right side of the page
+  // With each word from the paragraph only shown once
+  // and the size of each word is relative to its frequency in the paragraph.
 
 })
