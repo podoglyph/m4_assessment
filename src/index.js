@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let words = new Object()
 
     $.each(newText.split(' '), function(i, word) {
-      var word = word.replace(/,/g, '')
+      var word = word.replace(/,/g, '').toLowerCase()
       if (word in words) {
         words[word]++
       } else {
@@ -42,8 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function saveWords(words) {
     $.each(words, function(word) {
-      $.post(API + `/api/v1/words`, {word: { value: word } })
+      $.post(API + `/api/v1/words`, {word: { value: word } }).done(function() {
+        console.log('Fantastic!')
+      })
     })
   }
+
+  // $('.text-submission').keypress(function(e) {
+  //   if (e.which == 13) {
+  //      e.preventDefault();
+  //      console.log("hi")
+  //   }
+  // })
 
 })
