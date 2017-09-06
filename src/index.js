@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     saveWords(words)
     gatherWords(words)
+    $('.text-submission textarea').val('')
   })
 
   function gatherWords(wordObj) {
