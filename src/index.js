@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let words = new Object()
 
     $.each(newText.split(' '), function(i, word) {
+      var word = word.replace(/,/g, '')
       if (word in words) {
         words[word]++
       } else {
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayWord(count, word) {
-    var word = word.replace(/,/g, '')
+    // var word = word.replace(/,/g, '')
     wc.append(`<span style='font-size: ${count}em; margin: 5px'>${word}</span>`)
   }
 
