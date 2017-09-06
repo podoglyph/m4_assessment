@@ -20,11 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     $.each(newText.split(' '), function(i, word) {
       if (word in words) {
-        console.log("already here")
+        words[word]++
       } else {
-        console.log("first time!")
+        words[word] = 1
       }
-      words[word] = word
     });
 
     console.log(words)
