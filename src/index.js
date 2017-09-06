@@ -25,15 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
         words[word] = 1
       }
     });
-    displayWords(words)
+    gatherWords(words)
   })
 
-  function displayWords(wordObj) {
+  function gatherWords(wordObj) {
     let allWords = []
     $.each(wordObj, function(word) {
       allWords.push(word)
     })
-    wc.text(allWords.join(" "))
+    displayWords(allWords)
+  }
+
+  function displayWords(words) {
+    $.each(words, function(i, word) {
+      wc.append(`<span style='font-size: 2em; margin: 5px'>${word} </span>`)
+    })
+
   }
 
   // and the size of each word is relative to its frequency in the paragraph.
