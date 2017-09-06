@@ -25,13 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         words[word] = 1
       }
     });
-
-    console.log(words)
-
+    displayWords(words)
   })
 
+  function displayWords(wordObj) {
+    let allWords = []
+    $.each(wordObj, function(word) {
+      allWords.push(word)
+    })
+    wc.text(allWords.join(" "))
+  }
 
-  // With each word from the paragraph only shown once
   // and the size of each word is relative to its frequency in the paragraph.
 
 })
