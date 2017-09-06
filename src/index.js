@@ -16,10 +16,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(button).click(function() {
     let newText = $('.text-submission textarea').val()
+    let words = new Object()
 
-    $.each(newText.split(' '), function(i, text) {
-      console.log(text);
+    $.each(newText.split(' '), function(i, word) {
+      if (word in words) {
+        console.log("already here")
+      } else {
+        console.log("first time!")
+      }
+      words[word] = word
     });
+
+    console.log(words)
 
   })
 
